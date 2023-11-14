@@ -7,7 +7,7 @@ import Move from "./../assets/illustrations/move-icon.png";
 import Cup from "./../assets/illustrations/cup-code.png";
 
 // import ShareIcon from "@/images/share-icon.svg";
-import Boutton from "../button";
+
 import html2canvas from "html2canvas";
 
 interface Props {
@@ -75,8 +75,8 @@ export const DpGen: React.FC<Props> = ({
   return (
     <>
       <h6 className={styles.preview_text}>
-        If the preview does not display on your browser, please proceed to
-        download your DP. It&apos;s like ✨ magic✨ 👌🏾🫵🏾.
+        Si vous ne voyez pas votre photo, veuillez recharger la page ou cliquez
+        sur le bouton "Regenerer"
       </h6>
 
       <div className={styles.main_container}>
@@ -142,7 +142,7 @@ export const DpGen: React.FC<Props> = ({
               <div className={styles.be_there}>PARTICIPERA AU </div>
 
               <div className={styles.logo_container}>
-                <img src={Logo} alt="Devfest Lagos" className={styles.logo} />
+                <img src={Logo} alt="Devfest Kivu" className={styles.logo} />
               </div>
 
               <ul className={styles.group}>
@@ -163,13 +163,27 @@ export const DpGen: React.FC<Props> = ({
           </div>
         </section>
 
-        <section className={styles.action_section}>
-          <div className={styles.content}>
+        <section className="w-full bg-slate-900 mt-4 p-6 z-50">
+          <div className="flex justify-between ">
             {/* <PrimaryButton className={styles.btn_solid}>
             <ShareIcon /> Share
           </PrimaryButton> */}
-            <Boutton onClick={handleDownload}>Télecharger</Boutton>
-            <Boutton onClick={handleRedo}>Regenerer</Boutton>
+            <button
+              onClick={handleDownload}
+              className="
+            bg-primary p-3  rounded-md bg-green-400 font-bold active:bg-green-600 text-white transition-all 
+            "
+            >
+              Télecharger
+              {/* Download icon */}
+            </button>
+
+            <button
+              onClick={handleRedo}
+              className="bg-primary p-3  rounded-md bg-red-600 font-bold text-white"
+            >
+              Regenerer
+            </button>
           </div>
         </section>
       </div>

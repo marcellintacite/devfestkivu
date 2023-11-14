@@ -1,5 +1,6 @@
 import React, { createRef, useState } from "react";
 import { DpGen } from "./dp-gen/dp-gen";
+import { FaArrowRight } from "react-icons/fa";
 
 import bg from "./assets/bg.png";
 import Cropper, { ReactCropperElement } from "react-cropper";
@@ -195,7 +196,7 @@ function App() {
                     </div>
                   </div>
 
-                  <div>
+                  <div className="mt-5">
                     <label className="text-[#fff7]">
                       <div>Choisissez votre couleur préferée</div>
                     </label>
@@ -229,19 +230,22 @@ function App() {
                     type="submit"
                     disabled={!name || !selectedColor || !isCropped}
                   >
-                    Generate your dp
+                    Générer votre affiche
                     {/* <ArrowRight /> */}
+                    <FaArrowRight className="inline-block ml-2" />
                   </button>
                 </form>
               </div>
             </section>
           ) : (
-            <DpGen
-              handleRegenerate={setPreview}
-              name={name}
-              theme={selectedColor}
-              photo={cropData}
-            />
+            <div className="mt-4 ">
+              <DpGen
+                handleRegenerate={setPreview}
+                name={name}
+                theme={selectedColor}
+                photo={cropData}
+              />
+            </div>
           )}
         </div>
       </div>
