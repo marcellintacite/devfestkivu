@@ -147,16 +147,16 @@ export const DpGen: React.FC<Props> = ({
 
               <ul className={styles.group}>
                 <li className={styles.list}>
-                  <div className={styles.name}>Réservation ticket</div>
+                  <div className={styles.name}>Réservation</div>
                   <div className={styles.value}>devfestkivu.com</div>
                 </li>
                 <li className={styles.list}>
                   <div className={styles.name}>Date</div>
-                  <div className={styles.value}>02 Dec 2023</div>
+                  <div className={styles.value}>02|12|2023</div>
                 </li>
                 <li className={styles.list}>
                   <div className={styles.name}>Lieu</div>
-                  <div className={styles.value}>Salle INPP (labotte)</div>
+                  <div className={styles.value}>INPP</div>
                 </li>
               </ul>
             </div>

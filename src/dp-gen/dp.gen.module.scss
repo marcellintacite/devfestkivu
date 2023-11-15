@@ -10,6 +10,7 @@
 
 .preview_text {
   @include body-2;
+  color: #4d4d4d;
   display: none;
 
   @include media("<=phone") {
@@ -314,7 +315,9 @@
         z-index: 5;
 
         @include media("<=phone") {
-          margin-top: 1rem;
+          // margin-top: 1rem;
+          width: 90%;
+          margin: 1rem auto 0;
         }
 
         .list {
@@ -348,10 +351,12 @@
 
           .name {
             @include body-5;
-            font-weight: 400;
+            font-weight: 700;
+            color: #fff;
 
             @include media("<=phone") {
-              font-size: 0.8rem;
+              font-size: 0.5rem;
+              color: #1c1c1c;
             }
           }
 
@@ -360,8 +365,10 @@
             font-weight: 600;
 
             @include media("<=phone") {
-              font-size: 0.5rem;
+              font-size: 0.4rem;
             }
+
+            //
           }
         }
       }
