@@ -6,9 +6,10 @@ import Doodle from "./../assets/illustrations/right-doodle.png";
 import Move from "./../assets/illustrations/move-icon.png";
 import Cup from "./../assets/illustrations/cup-code.png";
 
-// import ShareIcon from "@/images/share-icon.svg";
+import * as htmlToImage from "html-to-image";
+import { ArrowRotateRight, DocumentDownload } from "iconsax-react";
 
-import html2canvas from "html2canvas";
+// import ShareIcon from "@/images/share-icon.svg";
 
 interface Props {
   name: string;
@@ -54,18 +55,31 @@ export const DpGen: React.FC<Props> = ({
 
       loadImages().then(() => {
         // All images have loaded, proceed to capture the section with html2canvas
-        html2canvas(sectionElement, { scale: 4, useCORS: true }).then(
-          (canvas) => {
-            // Get the canvas as a data URL with maximum quality
-            const image = canvas.toDataURL("image/png", 1.0);
+        // html2canvas(sectionElement, { scale: 4, useCORS: true }).then(
+        //   (canvas) => {
+        //     // Get the canvas as a data URL with maximum quality
+        //     const image = canvas.toDataURL("image/png", 1.0);
 
-            // Create a download link for the captured image
-            const downloadLink = document.createElement("a");
-            downloadLink.href = image;
-            downloadLink.download = `${name}-devfest-2023.png`;
-            downloadLink.click();
-          }
-        );
+        //     // Create a download link for the captured image
+        //     const downloadLink = document.createElement("a");
+        //     downloadLink.href = image;
+        //     downloadLink.download = `${name}-devfest-2023.png`;
+        //     downloadLink.click();
+        //   }
+        // );
+
+        const node = document.getElementById("exporting") as HTMLElement;
+        htmlToImage
+          .toPng(node)
+          .then(function (dataUrl) {
+            const link = document.createElement("a");
+            link.download = `${name} DevFest Kivu`;
+            link.href = dataUrl;
+            link.click();
+          })
+          .catch(function (error) {
+            console.error("oops, something went wrong!", error);
+          });
       });
     }
   };
@@ -79,7 +93,7 @@ export const DpGen: React.FC<Props> = ({
         sur le bouton "Regenerer"
       </h6>
 
-      <div className={styles.main_container}>
+      <div className={styles.main_container} id="exporting">
         <section
           ref={sectionRef}
           className={`
@@ -147,46 +161,47 @@ export const DpGen: React.FC<Props> = ({
 
               <ul className={styles.group}>
                 <li className={styles.list}>
-                  <div className={styles.name}>Réservation</div>
-                  <div className={styles.value}>devfestkivu.com</div>
+                  <div className={styles.name}>Réservation ticket</div>
+                  <div className={styles.value}>https://bit.ly/devkivu</div>
                 </li>
                 <li className={styles.list}>
                   <div className={styles.name}>Date</div>
-                  <div className={styles.value}>02|12|2023</div>
+                  <div className={styles.value}>02-12-2023</div>
                 </li>
                 <li className={styles.list}>
                   <div className={styles.name}>Lieu</div>
-                  <div className={styles.value}>INPP</div>
+                  <div className={styles.value}>Salle INPP</div>
                 </li>
               </ul>
             </div>
           </div>
         </section>
-
-        <section className="w-full bg-slate-900 mt-4 p-6 z-50">
-          <div className="flex justify-between ">
-            {/* <PrimaryButton className={styles.btn_solid}>
+      </div>
+      <section className="w-full bg-[#333] rounded-md pb-4 mt-4 p-6 z-50">
+        <div className="flex justify-between ">
+          {/* <PrimaryButton className={styles.btn_solid}>
             <ShareIcon /> Share
           </PrimaryButton> */}
-            <button
-              onClick={handleDownload}
-              className="
-            bg-primary p-3  rounded-md bg-green-400 font-bold active:bg-green-600 text-white transition-all 
+          <button
+            onClick={handleDownload}
+            className="
+            bg-primary p-3  rounded-md bg-green-400 font-bold active:bg-green-600 text-white transition-all flex items-center gap-2 
             "
-            >
-              Télecharger
-              {/* Download icon */}
-            </button>
+          >
+            <DocumentDownload size="24" color="#fff" />
+            Télecharger
+            {/* Download icon */}
+          </button>
 
-            <button
-              onClick={handleRedo}
-              className="bg-primary p-3  rounded-md bg-red-600 font-bold text-white"
-            >
-              Regenerer
-            </button>
-          </div>
-        </section>
-      </div>
+          <button
+            onClick={handleRedo}
+            className="bg-primary p-3  rounded-md bg-red-600 font-bold text-white flex items-center gap-2 transition-all active:bg-red-700"
+          >
+            <ArrowRotateRight size="24" color="#fff" />
+            Regenerer
+          </button>
+        </div>
+      </section>
     </>
   );
 };
