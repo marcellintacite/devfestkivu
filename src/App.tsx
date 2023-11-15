@@ -69,7 +69,7 @@ function App() {
           {!previewMode ? (
             <section className="pt-12 w-full md:w-3/5 mx-auto">
               <div className="">
-                <h4 className="text-4xl font-bold text-[#ffe991]">
+                <h4 className="text-4xl font-bold text-[#ffe991] text-center md:text-start">
                   Personnalisez votre affiche DevFest
                 </h4>
                 <form className="w-full mt-3">
