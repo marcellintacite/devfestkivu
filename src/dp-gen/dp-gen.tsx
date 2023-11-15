@@ -173,6 +173,7 @@ export const DpGen: React.FC<Props> = ({
                   <div className={styles.value}>Salle INPP</div>
                 </li>
               </ul>
+              {/* Footer */}
             </div>
           </div>
         </section>

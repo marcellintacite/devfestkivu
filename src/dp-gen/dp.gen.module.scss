@@ -217,11 +217,12 @@
         .name {
           position: absolute;
           bottom: -20px;
-          transform: rotate(5.306deg);
+          transform: rotate(4.306deg);
           background: #ffe6cc;
           color: #1c1c1c;
           padding: 0.6rem 1.2rem;
           border-radius: 4.8rem;
+          font-weight: 700;
           width: 100%;
           text-align: center;
           @include heading-5;
