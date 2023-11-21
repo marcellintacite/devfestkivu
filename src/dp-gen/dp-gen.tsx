@@ -185,7 +185,7 @@ export const DpGen: React.FC<Props> = ({
         </section>
       </div>
       <section className="w-full bg-[#333] rounded-md pb-4 mt-4 p-6 z-50">
-        <div className="flex justify-between ">
+        <div className="flex justify-between gap-3">
           {/* <PrimaryButton className={styles.btn_solid}>
             <ShareIcon /> Share
           </PrimaryButton> */}
@@ -196,7 +196,7 @@ export const DpGen: React.FC<Props> = ({
             "
           >
             <DocumentDownload size="24" color="#fff" />
-            Télecharger
+            <span className="hidden md:block">Télecharger</span>
             {/* Download icon */}
             {loading && (
               <div role="status">
@@ -226,7 +226,7 @@ export const DpGen: React.FC<Props> = ({
             className="bg-primary p-3  rounded-md bg-red-600 font-bold text-white flex items-center gap-2 transition-all active:bg-red-700"
           >
             <ArrowRotateRight size="24" color="#fff" />
-            Regenerer
+            <span className="hidden md:block">Regenerer</span>
           </button>
         </div>
       </section>
